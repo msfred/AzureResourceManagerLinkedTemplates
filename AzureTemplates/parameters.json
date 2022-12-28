@@ -12,10 +12,10 @@
             "value": "linux"
         },
         "planName": {
-            "value": "asp-0a1b2c-dev"
+            "value": "asp-0a1b2c-arm-linked-template"
         },
         "webAppName": {
-            "value": "app-0a1b2c-dev"
+            "value": "app-0a1b2c-arm-linked-template"
         }
     }
 }
