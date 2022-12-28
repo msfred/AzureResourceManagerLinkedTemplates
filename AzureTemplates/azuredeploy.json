@@ -16,6 +16,9 @@
     "location": {
       "type": "string"
     },
+    "planKind": {
+      "type": "string"
+    },
     "planName": {
       "type": "string"
     },
@@ -38,6 +41,7 @@
         },
         "parameters": {
           "location": { "value": "[parameters('location')]" },
+          "planKind": { "value": "[parameters('planKind')]" },
           "planName": { "value": "[parameters('planName')]" }
         }
       }
