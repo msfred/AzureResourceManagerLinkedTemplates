@@ -1,0 +1,45 @@
+# yaml-language-server: https://json.schemastore.org/github-workflow.json
+name: Linked Templates Example
+
+on:
+  pull_request:
+    branches: [main]
+    
+  workflow_dispatch:
+  
+permissions:
+  id-token: write
+  
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+env:
+  resourceGroup: rg-gha-sample-dev
+
+jobs:
+  
+  # Deploy to the Development servers
+  DeployArmTemplates:
+    name: Deploy ARM Templates
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE, so the job can access it
+      - uses: actions/checkout@v3
+          
+      # Log in to Azure
+      - uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Deploy resources to Azure
+      - uses: azure/arm-deploy@v1
+        id: deployStep
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName:  ${{ env.resourceGroup }}
+          template: ./AzureTemplates/azuredeploy.json
+          parameters: ./AzureTemplates/parameters.json
