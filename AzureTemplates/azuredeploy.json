@@ -4,11 +4,7 @@
   "parameters": {
     "environment": {
       "type": "string",
-      "allowedValues": [
-        "DEV",
-        "QA",
-        "PROD"
-      ],
+      "allowedValues": [ "DEV", "QA", "PROD" ],
       "metadata": {
         "description": "The environment that the resources are being deployed to."
       }
@@ -17,7 +13,8 @@
       "type": "string"
     },
     "planKind": {
-      "type": "string"
+      "type": "string",
+      "allowedValues": [ "windows", "linux", "functionApp", "elastic", "app" ]
     },
     "planName": {
       "type": "string"
