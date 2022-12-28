@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environment": {
+      "type": "string",
+      "allowedValues": [
+        "DEV",
+        "QA",
+        "PROD"
+      ],
+      "metadata": {
+        "description": "The environment that the resources are being deployed to."
+      }
+    },
+    "location": {
+      "type": "string"
+    },
+    "planName": {
+      "type": "string"
+    },
+    "webAppName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "name": "appServicePlanTemplate",
+      "apiVersion": "2015-01-01",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/msfred/AzureResourceManagerLinkedTemplates/main/AzureTemplates/arm-appserviceplan.json",
+          "contentVersion": "1.0.0.0"
+        }
+      },
+      "parameters": {
+        "location": {"value": "[parameters('location')]"},
+        "planName": {"value": "[parameters('planName')]"}
+      }
+    }
+  ],
+  "outputs": {
+    "output1": {
+      "type": "string",
+      "value": "[parameters('environment')]"
+    },
+    "webAppName": {
+      "type": "string",
+      "value": "[parameters('webAppName')]"
+    }
+  }
+}

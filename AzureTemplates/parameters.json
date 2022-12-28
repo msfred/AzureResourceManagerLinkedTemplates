@@ -1,0 +1,24 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "0.0.0.1",
+    "parameters": {
+        "environment": {
+            "value": "DEV"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "planKind": {
+            "value": "windows"
+        },
+        "planName": {
+            "value": "asp-0a1b2c-dev"
+        },
+        "rgName": {
+            "value": "rg-dev"
+        },
+        "webAppName": {
+            "value": "app-0a1b2c-dev"
+        }
+    }
+}
