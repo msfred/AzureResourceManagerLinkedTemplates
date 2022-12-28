@@ -5,6 +5,9 @@
     "location": {
       "type": "string"
     },
+    "planKind" : {
+      "type": "string"
+    },
     "planName": {
       "type": "string"
     }
@@ -17,7 +20,7 @@
       "name": "[parameters('planName')]",
       "type": "Microsoft.Web/serverfarms",
       "location": "[parameters('location')]",
-      "kind": "app",
+      "kind": "[parameters('planKind')]",
       "tags": {},
       "properties": {
         "perSiteScaling": false,
