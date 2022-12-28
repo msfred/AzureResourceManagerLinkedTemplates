@@ -30,7 +30,6 @@
       "name": "appServicePlanTemplate",
       "apiVersion": "2021-04-01",
       "type": "Microsoft.Resources/deployments",
-      "location": "[parameters('location')]",
       "properties": {
         "mode": "incremental",
         "templateLink": {
