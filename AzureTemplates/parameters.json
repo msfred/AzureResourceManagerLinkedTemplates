@@ -8,9 +8,6 @@
         "location": {
             "value": "eastus"
         },
-        "planKind": {
-            "value": "windows"
-        },
         "planName": {
             "value": "asp-0a1b2c-dev"
         },
