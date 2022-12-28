@@ -28,18 +28,18 @@
   "resources": [
     {
       "name": "appServicePlanTemplate",
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2021-04-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/msfred/AzureResourceManagerLinkedTemplates/main/AzureTemplates/arm-appserviceplan.json",
           "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": { "value": "[parameters('location')]" },
+          "planName": { "value": "[parameters('planName')]" }
         }
-      },
-      "parameters": {
-        "location": {"value": "[parameters('location')]"},
-        "planName": {"value": "[parameters('planName')]"}
       }
     }
   ],
