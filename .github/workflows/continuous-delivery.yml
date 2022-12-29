@@ -42,4 +42,4 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName:  ${{ env.resourceGroup }}
           template: ./AzureTemplates/azuredeploy.json
-          parameters: ./AzureTemplates/parameters.json
+          parameters: ./AzureTemplates/parameters.json sasToken=${{ secrets.STORAGE_ACCOUNT_TOKEN }}

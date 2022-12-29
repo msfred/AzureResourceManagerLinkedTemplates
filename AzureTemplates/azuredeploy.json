@@ -19,13 +19,13 @@
     "planName": {
       "type": "string"
     },
-    // "sasToken": {
-    //   "type": "string",
-    //   "defaultValue": "",
-    //   "metadata": {
-    //     "description": "A SAS token that allows access to the Storage Account storing the linked ARM template."
-    //   }
-    // },
+    "sasToken": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "A SAS token that allows access to the Storage Account storing the linked ARM template."
+      }
+    },
     "webAppName": {
       "type": "string"
     }
@@ -41,8 +41,8 @@
         "mode": "incremental",
         "templateLink": {
           // "uri": "https://raw.githubusercontent.com/msfred/AzureResourceManagerLinkedTemplates/main/AzureTemplates/arm-appserviceplan.json",
-          // "uri": "[concat('https://saesripoc.blob.core.windows.net/azuretemplates/arm-appserviceplan.json', parameters('sasToken'))]",
-          "uri": "https://saesripoc.blob.core.windows.net/public/arm-appserviceplan.json",
+          "uri": "[concat('https://saesripoc.blob.core.windows.net/private/arm-appserviceplan.json', parameters('sasToken'))]",
+          //"uri": "https://saesripoc.blob.core.windows.net/public/arm-appserviceplan.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
